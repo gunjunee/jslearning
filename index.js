@@ -95,3 +95,18 @@ even_odd(3);
 //temperature
 const temp = (x) => console.log((x*9/5)+32);
 temp(0);
+
+
+//function in function
+const calc = (x,y) => {
+    const add = (x,y) => console.log(x +y);
+    add(88,12);
+
+    const subs = (x,y) => console.log(x - y);
+    subs(80,40);
+
+    const mult = (x,y) => console.log(x * y);
+    mult(5,5);    
+}
+
+calc(7,6);
