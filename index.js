@@ -1,6 +1,6 @@
-//fuction
+//FUNCTION
 //calculator(add,subtract)
-function add(x,y){
+/*function add(x,y){
     console.log (x + y);
 }
 add(6,7);
@@ -47,5 +47,51 @@ function even_or_odd(numbr){
     }
 }
 
-even_or_odd(6);
+even_or_odd(6);*/
 
+
+
+//ARROW FUNCTION
+//calculator(add,subtract)
+const add = (x,y) => console.log(x +y);
+add(3,4);
+
+const subs = (x,y) => console.log(x - y);
+subs(8,6);
+
+
+//greeting user 
+const greet = (name) => console.log("hello " + name);
+greet("Gunjan");
+
+
+//max number
+const maxnum = (x,y,z) => {
+    if(x>y && x>z){
+        console.log(x);
+    }
+    else if(y>x && y>z){
+        console.log(y);
+    }
+    else{
+        console.log(z);
+    }
+}
+maxnum(88,56,90);
+
+
+//even/odd number
+const even_odd = (x) => {
+    if(x%2==0){
+        console.log("even number");
+    }
+    else{
+        console.log("odd number");
+    }
+}
+even_odd(3);
+
+
+//temperature
+const temp = (x) => console.log((x*9/5)+32);
+temp(0);
