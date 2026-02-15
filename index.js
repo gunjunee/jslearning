@@ -53,7 +53,7 @@ even_or_odd(6);*/
 
 //ARROW FUNCTION
 //calculator(add,subtract)
-const add = (x,y) => console.log(x +y);
+/*const add = (x,y) => console.log(x +y);
 add(3,4);
 
 const subs = (x,y) => console.log(x - y);
@@ -109,4 +109,26 @@ const calc = (x,y) => {
     mult(5,5);    
 }
 
-calc(7,6);
+calc(7,6);*/
+
+
+
+//ARRAY
+//expenses
+let expenses = ["rent", "food", "medical", "clothes", "tution", "transportation", 
+                "insurance", "electricity bill", "water bill", "internet bill"];
+/*for(let i=0; i<expenses.length; i++){
+    console.log(expenses[i]);
+}*/
+
+expenses.pop();
+expenses.push("books");
+expenses.shift();
+expenses.unshift("internet bill");
+
+let cut = expenses.slice(-3);
+console.log(cut);
+console.log(expenses);
+
+let reversedList = expenses.reverse();
+console.log(reversedList);
