@@ -115,12 +115,9 @@ calc(7,6);*/
 
 //ARRAY
 //expenses
-let expenses = ["rent", "food", "medical", "clothes", "tution", "transportation", 
+/*let expenses = ["rent", "food", "medical", "clothes", "tution", "transportation", 
                 "insurance", "electricity bill", "water bill", "internet bill"];
-/*for(let i=0; i<expenses.length; i++){
-    console.log(expenses[i]);
-}*/
-
+                
 expenses.pop();
 expenses.push("books");
 expenses.shift();
@@ -131,4 +128,49 @@ console.log(cut);
 console.log(expenses);
 
 let reversedList = expenses.reverse();
-console.log(reversedList);
+console.log(reversedList);*/
+
+// let reverseTheArray = (arr) => {
+//     //let expense = ["rent", "food", "medical", "clothes"];
+//     let reversedArr = [];
+//     for(let i=arr.length-1; i>=0; i--){
+//         reversedArr.push(arr[i]);
+//     }
+//     return reversedArr;
+// }
+// const reversedArr = reverseTheArray(["rent", "food", "medical", "clothes", "Goods"]);
+// console.log(reversedArr);
+
+
+
+
+// Array methods (map, reduce, filter)
+let expenses = [
+  {name: "Food", price: 1200},
+  {name: "Medical", price: 300},
+  {name: "InternetBill", price: 800}
+];
+
+
+let expensiveItems = [];
+for(let i = 0; i < expenses.length; i++) {
+  if(expenses[i].price > 500) {
+    expensiveItems.push(expenses[i]);
+  }
+}
+console.log(expensiveItems);
+
+
+let afterTax = [];
+for(let i = 0; i < expensiveItems.length; i++) {
+  let tax = expensiveItems[i].price * 1.1;
+  afterTax.push(tax);
+}
+console.log(afterTax);
+
+
+let total = 0;
+for(let i = 0; i < afterTax.length; i++) {
+  total = total + afterTax[i];
+}
+console.log(total);  
