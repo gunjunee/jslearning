@@ -145,13 +145,27 @@ console.log(reversedList);*/
 
 
 // Array methods (map, reduce, filter)
-let expenses = [
-  {name: "Food", price: 1200},
-  {name: "Medical", price: 300},
-  {name: "InternetBill", price: 800}
-];
+// let expenses = [
+//   {name: "Food", price: 1200},
+//   {name: "Medical", price: 300},
+//   {name: "InternetBill", price: 800}
+// ];
 
-let expensiveOne = expenses.filter(moreThan = (value) => value>500);
-let afterTax = expenses.map(tax = (value) => value*1.1);
-let totalExpense = expenses.reduce(total = (sum=0, value) => sum+value);
-console.log(totalExpense);
+// let expensiveOne = expenses.filter(moreThan = (value) => value>500);
+// let afterTax = expenses.map(tax = (value) => value*1.1);
+// let totalExpense = expenses.reduce(total = (sum=0, value) => sum+value);
+// console.log(totalExpense);
+
+
+
+
+//Objects and JSON
+let expenses = {
+    id : 101,
+    category : 'health',
+    amount : 200,
+    date : '2/4/2025'
+}
+
+let newExpenses = JSON.parse(JSON.stringify(expenses));
+console.log(newExpenses);
