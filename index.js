@@ -151,26 +151,7 @@ let expenses = [
   {name: "InternetBill", price: 800}
 ];
 
-
-let expensiveItems = [];
-for(let i = 0; i < expenses.length; i++) {
-  if(expenses[i].price > 500) {
-    expensiveItems.push(expenses[i]);
-  }
-}
-console.log(expensiveItems);
-
-
-let afterTax = [];
-for(let i = 0; i < expensiveItems.length; i++) {
-  let tax = expensiveItems[i].price * 1.1;
-  afterTax.push(tax);
-}
-console.log(afterTax);
-
-
-let total = 0;
-for(let i = 0; i < afterTax.length; i++) {
-  total = total + afterTax[i];
-}
-console.log(total);  
+let expensiveOne = expenses.filter(moreThan = (value) => value>500);
+let afterTax = expenses.map(tax = (value) => value*1.1);
+let totalExpense = expenses.reduce(total = (sum=0, value) => sum+value);
+console.log(totalExpense);
