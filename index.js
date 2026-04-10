@@ -159,13 +159,99 @@ console.log(reversedList);*/
 
 
 
-//Objects and JSON
-let expenses = {
-    id : 101,
-    category : 'health',
-    amount : 200,
-    date : '2/4/2025'
+// //Objects and JSON
+// let expenses = {
+//     id : 101,
+//     category : 'health',
+//     amount : 200,
+//     date : '2/4/2025'
+// }
+
+// let newExpenses = JSON.parse(JSON.stringify(expenses));
+// console.log(newExpenses);
+
+
+
+
+
+
+
+const form = document.getElementById("expense-form");
+const list = document.getElementById("expense-list");
+const loadBtn = document.getElementById("load-btn");
+
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const amount = document.getElementById("amount").value;
+  const category = document.getElementById("category").value;
+  const date = document.getElementById("date").value;
+
+  const expense = {
+    id: Date.now(),
+    amount,
+    category,
+    date
+  };
+
+  expenses.push(expense);
+  saveAndRender();
+
+  form.reset();
+});
+
+
+function renderExpenses() {
+  list.innerHTML = "";
+
+  expenses.forEach(exp => {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <div>
+        ₹${exp.amount} - ${exp.category}<br>
+        <small>${new Date(exp.date).toLocaleDateString()}</small>
+      </div>
+      <button class="delete-btn" onclick="deleteExpense(${exp.id})">X</button>
+    `;
+
+    list.appendChild(li);
+  });
 }
 
-let newExpenses = JSON.parse(JSON.stringify(expenses));
-console.log(newExpenses);
+
+function deleteExpense(id) {
+  expenses = expenses.filter(exp => exp.id !== id);
+  saveAndRender();
+}
+
+
+function saveAndRender() {
+  localStorage.setItem("expenses", JSON.stringify(expenses));
+  renderExpenses();
+}
+
+
+function fetchMockData() {
+  loadBtn.innerText = "Loading...";
+  
+  setTimeout(() => {
+    const mockData = [
+      { id: Date.now()+1, amount: 200, category: "Food", date: "2026-04-08" },
+      { id: Date.now()+2, amount: 500, category: "Shopping", date: "2026-04-09" }
+    ];
+
+    expenses = [...expenses, ...mockData];
+    saveAndRender();
+
+    loadBtn.innerText = "Load Sample Data (API)";
+  }, 2000);
+}
+
+loadBtn.addEventListener("click", fetchMockData);
+
+
+renderExpenses();
